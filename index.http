@@ -1,0 +1,147 @@
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4MGMxYWRjZjRlZWRkMzNiNmVhNyIsImlhdCI6MTc0NzgxMjc3MywiZXhwIjoxNzU1NTg4NzczfQ.DwWW1z-lEG9PzMBTM0uOt4k5FMedAuQmcXc_z6Nmf30
+
+POST http://localhost:5000/users/register
+Content-Type: application/json
+
+{
+  "name":"hather",
+  "email":"hatherali@gmail.com",
+  "phone":"8754794368"
+}
+
+
+#######
+
+
+POST http://localhost:5000/users/login
+Content-Type: application/json
+
+{
+  "phone":"8754794368"
+}
+
+
+#####
+
+
+GET http://localhost:5000/api/categories
+
+
+########
+
+
+POST http://localhost:5000/products/
+Content-Type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MmQ4MGMxYWRjZjRlZWRkMzNiNmVhNyIsImlhdCI6MTc0NzgxMjc3MywiZXhwIjoxNzU1NTg4NzczfQ.DwWW1z-lEG9PzMBTM0uOt4k5FMedAuQmcXc_z6Nmf30
+
+{
+  "name": "face wash",
+  "description": "contains Saylic acid best for oilly skins",
+  "price": 59.99,
+  "category": "beauty",
+  "countInStock": 10
+} 
+
+
+
+###########
+
+
+
+
+
+
+############
+
+GET  http://localhost:5000/products/
+
+
+#############
+
+POST http://localhost:5000/api/add_category
+Content-Type: application/json
+
+{
+   "categories_name": "breakfast",
+    "description": "break fast product"
+}
+
+#######
+GET http://localhost:5000/products/682dd6915fa9937c49c64d41
+
+
+########
+
+
+POST http://localhost:5000/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGQwYTdlNzQ1ZGQ3NDZkOGMyYmU2OCIsImlhdCI6MTc0NTY4NTExOCwiZXhwIjoxNzQ4Mjc3MTE4fQ.HJVOeoyLJamPhutSeWudWDYJd3NmNulZw3hQxHJ-hsU
+
+{
+  "productId": "680ce4deaeab52974353e30f",
+  "quantity": 1
+}
+
+
+#######
+
+
+
+
+GET http://localhost:5000/cart
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGNlNDNiYWVhYjUyOTc0MzUzZTMwYiIsImlhdCI6MTc0NTY3NTg5MiwiZXhwIjoxNzQ4MjY3ODkyfQ.QPMoAt4XMDCmy7JSxpYd0Y1VeF6gkpu2UFYBAeSqCI0
+
+
+
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGNlNDNiYWVhYjUyOTc0MzUzZTMwYiIsImlhdCI6MTc0NTY3NTg5MiwiZXhwIjoxNzQ4MjY3ODkyfQ.QPMoAt4XMDCmy7JSxpYd0Y1VeF6gkpu2UFYBAeSqCI0
+
+###########
+
+POST http://localhost:5000/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGQwYTdlNzQ1ZGQ3NDZkOGMyYmU2OCIsImlhdCI6MTc0NTY4NTExOCwiZXhwIjoxNzQ4Mjc3MTE4fQ.HJVOeoyLJamPhutSeWudWDYJd3NmNulZw3hQxHJ-hsU
+
+{
+  "shippingAddress": {
+    "address": "123 Main St",
+    "city": "New York",
+    "postalCode": "10001",
+    "country": "USA"
+  },
+  "paymentMethod": "PayPal",
+  "totalPrice": 119.98
+}
+
+
+
+#######
+
+
+GET http://localhost:5000/orders/myorders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGNlNDNiYWVhYjUyOTc0MzUzZTMwYiIsImlhdCI6MTc0NTY3NTg5MiwiZXhwIjoxNzQ4MjY3ODkyfQ.QPMoAt4XMDCmy7JSxpYd0Y1VeF6gkpu2UFYBAeSqCI0
+
+
+
+##########
+
+
+GET http://localhost:5000/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGNlMTczYWVhYjUyOTc0MzUzZTMwMyIsImlhdCI6MTc0NTY4NDIyNiwiZXhwIjoxNzQ4Mjc2MjI2fQ.XqMcYFNP59v_gfBaleuxzxsgr76-CGAhdbMUBD4mNBA 
+
+######
+
+
+PUT http://localhost:5000/orders/<orderId>/pay
+Headers:
+Authorization: Bearer <admin-token>
+
+
+
+#########
+
+
+PUT http://localhost:5000/orders/<orderId>/deliver
+Headers:
+Authorization: Bearer <admin-token>
