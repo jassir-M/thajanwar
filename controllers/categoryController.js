@@ -23,16 +23,19 @@ const Category = require('../models/category'); // Adjust path if needed
 
 const getCategoryList = async (req, res) => {
   try {
-    const categoryDoc = await Category.findOne(); // Assuming only one document
-    if (!categoryDoc || !categoryDoc.category_list.length) {
+    const categories = await Category.find();
+
+    if (!categories || categories.length === 0) {
       return res.status(404).json({ message: 'No categories found' });
     }
 
-    res.status(200).json(categoryDoc.category_list);
+    res.status(200).json(categories);
   } catch (err) {
+    console.error('Error fetching categories:', err);
     res.status(500).json({ error: 'Failed to fetch category list' });
   }
 };
+
 
 const uploadImage = async (req, res) => {
   console.log('hi')
